@@ -19,4 +19,12 @@
 - Once you have everything set up, you’re ready to begin the first step.
 
 __Step 1__ — Cloning and Testing the Node Application
-As a first step, you’ll clone the repository with the Node application code, which includes the Dockerfile to build your application image with Compose. Then you’ll test the application by building and running it with the docker run command, without a reverse proxy or SSL
+As a first step, you’ll clone the repository with the Node application code, which includes the Dockerfile to build your application image with Compose. Then you’ll test the application by building and running it with the docker run command, without a reverse proxy or SSL. 
+
+In your non-root user’s home directory, clone the nodejs-image-demo repository from the DigitalOcean Community GitHub account.
+
+Clone the repository into a directory. This example uses node_project as the directory name. Feel free to name this directory to your liking:
+
+``` 
+    git clone https://github.com/do-community/nodejs-image-demo.git node_project
+```
