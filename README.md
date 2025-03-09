@@ -25,6 +25,37 @@ In your non-root user’s home directory, clone the nodejs-image-demo repository
 
 Clone the repository into a directory. This example uses node_project as the directory name. Feel free to name this directory to your liking:
 
-``` 
+``` bash
     git clone https://github.com/do-community/nodejs-image-demo.git node_project
 ```
+Change into the node_project directory:
+```bash
+    cd node_project
+```
+In this directory, there is a Dockerfile that contains instructions for building a Node application using the Docker node:10 image and the contents of your current project directory. 
+
+To test the application without SSL, you can build and tag the image using docker build and the -t flag. This example names the image node-demo, but you are free to name it something else:
+```bash
+    docker build -t node-demo .
+```
+Once the build process is complete, you can list your images with: 
+```bash
+    docker images
+```
+
+Next, create the container with docker run. Three flags are included with this command:
+
+- -p: This publishes the port on the container and maps it to a port on your host. You will use port 80 on the host in this example, but feel free to modify this as necessary if you have another process running on that port. For more information about how this works, review this discussion in the Docker documentation on port binding.
+- -d: This runs the container in the background.
+- --name: This allows you to give the container a memorable name.
+
+Run the following command to build the container:
+```bash 
+    docker run --name node-demo -p 80:8080 -d node-demo
+```
+Inspect your running containers with:
+```bash
+    docker ps 
+```
+You can now visit your domain to test your setup: http://your_domain. Remember to replace your_domain with your own domain name.
+
